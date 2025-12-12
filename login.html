@@ -607,12 +607,17 @@
                 max-width: 500px;
             }
             
-            .auth-left {
-                padding: 40px 30px;
-            }
-            
+            /* Right panel (forms) should come FIRST */
             .auth-right {
-                padding: 40px 30px;
+                order: 1;
+                width: 100%;
+            }
+
+            /* Left panel (branding) should come SECOND */
+            .auth-left {
+                order: 2;
+                width: 100%;
+                margin-top: 20px;
             }
         }
         
