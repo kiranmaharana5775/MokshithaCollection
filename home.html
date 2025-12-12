@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mokshitha Collections | Premium Sarees & Dresses</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-sea-green: #2E8B57;
+            --light-sea-green: #20B2AA;
+            --light-cream: #FFF8F0;
+            --gold-accent: #D4AF37;
+            --dark-text: #2C3E50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-color: #fefefe;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .main-header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-accent);
+        }
+        
+        .nav-link {
+            color: var(--dark-text) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--dark-sea-green) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--dark-sea-green) !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--dark-sea-green), var(--light-sea-green));
+        }
+        
+        .header-icons .icon {
+            position: relative;
+            margin-left: 20px;
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .header-icons .icon:hover {
+            color: var(--dark-sea-green);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--light-sea-green);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.5)), 
+                        url(./DesktopBG.png);
+            background-size: cover;
+            background-position: top;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(46, 139, 87, 0.1), rgba(32, 178, 170, 0.1));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-title span {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .hero-btn {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(46, 139, 87, 0.2);
+            color: white;
+        }
+        
+        /* Category Sections */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-text);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            display: none !important;
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dark-sea-green), var(--light-sea-green));
+        }
+        
+        .category-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s;
+            height: 100%;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-image {
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
+        }
+        
+        .category-content {
+            background: white;
+            padding: 25px;
+            position: relative;
+        }
+        
+        .category-badge {
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin-bottom: 10px;
+        }
+        
+        .category-desc {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .category-link {
+            color: var(--dark-sea-green);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .category-link i {
+            margin-left: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .category-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Featured Products */
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            background: white;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--light-sea-green);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .product-badge.new {
+            background: var(--gold-accent);
+        }
+        
+        .product-wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #888;
+            transition: all 0.3s;
+        }
+        
+        .product-wishlist:hover, .product-wishlist.active {
+            color: #ff4757;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .product-price {
+            color: var(--dark-sea-green);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price .old-price {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        
+        .product-rating {
+            color: var(--gold-accent);
+            margin-bottom: 15px;
+        }
+        
+        .product-rating span {
+            color: #666;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+        
+        .product-btn {
+            background: transparent;
+            border: 2px solid var(--light-sea-green);
+            color: var(--dark-sea-green);
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .product-btn:hover {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+        }
+        
+        /* Testimonials */
+        .testimonial-section {
+            background: linear-gradient(rgba(46, 139, 87, 0.03), rgba(32, 178, 170, 0.03));
+            padding: 80px 0;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 15px;
+            height: 100%;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(46, 139, 87, 0.1);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h5 {
+            margin: 0;
+            color: var(--dark-text);
+        }
+        
+        .author-info p {
+            margin: 0;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin: 80px 0;
+        }
+        
+        .newsletter-title {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .newsletter-btn {
+            background: var(--gold-accent);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background: #c19b2e;
+        }
+        
+        /* Footer */
+        .footer-section {
+            background: #1a1a1a;
+            color: #ddd;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--light-sea-green);
+        }
+        
+        .footer-about {
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .footer-title {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--light-sea-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-sea-green);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--light-sea-green);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+
+            .hero-section {
+                background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.7)), 
+                            url(./MobileBG.png);
+                background-size: cover;
+                background-position: right;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input, .newsletter-btn {
+                border-radius: 30px;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .category-image {
+                height: 300px;
+            }
+        }
+        
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.1;
+        }
+        
+        .floating-1 {
+            top: 20%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: var(--dark-sea-green);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-2 {
+            bottom: 10%;
+            right: 10%;
+            width: 80px;
+            height: 80px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            background: var(--light-sea-green);
+            animation: float 8s ease-in-out infinite reverse;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top Bar -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43210 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <i class="fas fa-envelope"></i> info@mokshithacollections.com
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span>Free Shipping on Orders Above ₹1999</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="index.html" class="logo">Mokshitha<span>.</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-block">
+                    <nav class="navbar navbar-expand-lg justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop.html">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="collections.html">Collections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 text-end">
+                    <div class="header-icons d-inline-flex align-items-center">
+                        <div class="icon search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="icon user-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="icon wishlist-icon">
+                            <i class="far fa-heart"></i>
+                            <span class="cart-count">3</span>
+                        </div>
+                        <div class="icon cart-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">2</span>
+                        </div>
+                        <button class="navbar-toggler d-md-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="collapse d-md-none" id="mobileMenu">
+                <ul class="navbar-nav mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="hero-title fade-in">
+                            Elegance Redefined<br>
+                            <span>Mokshitha Collections</span>
+                        </h1>
+                        <p class="hero-subtitle fade-in">
+                            Discover the perfect blend of tradition and modernity in our exquisite collection of sarees and dresses. Each piece tells a story of craftsmanship and elegance.
+                        </p>
+                        <div class="fade-in">
+                            <a href="#categories" class="hero-btn me-3">Explore Collections</a>
+                            <a href="shop.html" class="hero-btn" style="background: transparent; border: 2px solid var(--dark-sea-green); color: var(--dark-sea-green);">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <!-- Hero image would be here -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Categories -->
+    <section id="categories" class="py-5 my-5">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Our Collections</h2>
+                <p class="mt-3">Choose from our two exclusive categories</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Mokshitha Collections - Sarees -->
+                <div class="col-lg-6">
+                    <div class="category-card fade-in">
+                        <div class="category-image">
+                            <img src="https://th.bing.com/th/id/OSK.HERO4W8hHZM8Pcm-sKteF1T27N_njVcK7bn5CRK00XV2GMg?o=7&cb=ucfimg2&rm=3&ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Saree Collection">
+                        </div>
+                        <div class="category-content">
+                            <div class="category-badge">Traditional</div>
+                            <h3 class="category-title">Mokshitha Collections</h3>
+                            <p class="category-desc">
+                                Experience the timeless elegance of traditional Indian sarees. Our collection features handwoven silk, exquisite Banarasi, elegant Kanchipuram, and contemporary designer sarees for every occasion.
+                            </p>
+                            <a href="sarees.html" class="category-link">
+                                Explore Sarees <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mokshitha Studio - Dresses -->
+                <div class="col-lg-6">
+                    <div class="category-card fade-in">
+                        <div class="category-image">
+                            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Dress Collection">
+                        </div>
+                        <div class="category-content">
+                            <div class="category-badge">Contemporary</div>
+                            <h3 class="category-title">Mokshitha Studio</h3>
+                            <p class="category-desc">
+                                Modern fashion meets comfort in our exclusive dress collection. From elegant evening gowns to casual summer dresses, find the perfect outfit that complements your style and personality.
+                            </p>
+                            <a href="dresses.html" class="category-link">
+                                Explore Dresses <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Featured Products -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Featured Products</h2>
+                <p class="mt-3">Handpicked just for you</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Product 1 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card fade-in">
+                        <div class="product-image">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/15/15/02/saree-723940_640.jpg" alt="Silk Saree">
+                            <div class="product-badge">Bestseller</div>
+                            <div class="product-wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Royal Blue Silk Saree</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(42)</span>
+                            </div>
+                            <div class="product-price">
+                                ₹4,599 <span class="old-price">₹6,499</span>
+                            </div>
+                            <button class="product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card fade-in">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Floral Dress">
+                            <div class="product-badge new">New</div>
+                            <div class="product-wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Floral Maxi Dress</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(28)</span>
+                            </div>
+                            <div class="product-price">
+                                ₹2,899 <span class="old-price">₹3,499</span>
+                            </div>
+                            <button class="product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card fade-in">
+                        <div class="product-image">
+                            <img src="https://cdn.pixabay.com/photo/2017/05/12/11/47/buy-sarees-online-in-india-2306851_1280.jpg" alt="Banarasi Saree">
+                            <div class="product-badge">-30%</div>
+                            <div class="product-wishlist">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">White Banarasi Saree</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(56)</span>
+                            </div>
+                            <div class="product-price">
+                                ₹7,999 <span class="old-price">₹11,499</span>
+                            </div>
+                            <button class="product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="product-card fade-in">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Evening Gown">
+                            <div class="product-wishlist active">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h4 class="product-title">Red Evening Gown</h4>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(35)</span>
+                            </div>
+                            <div class="product-price">
+                                ₹5,499
+                            </div>
+                            <button class="product-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5 fade-in">
+                <a href="shop.html" class="hero-btn">View All Products</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>What Our Customers Say</h2>
+                <p class="mt-3">Trusted by thousands of elegant women</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="testimonial-card fade-in">
+                        <p class="testimonial-text">
+                            The silk saree I bought from Mokshitha Collections is absolutely stunning! The quality is exceptional and I received so many compliments at the wedding.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Customer">
+                            </div>
+                            <div class="author-info">
+                                <h5>Priya Sharma</h5>
+                                <p>Delhi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card fade-in">
+                        <p class="testimonial-text">
+                            Mokshitha Studio dresses are my go-to for office wear. Perfect blend of comfort and style. The fabric quality is consistently good across all purchases.
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Customer">
+                            </div>
+                            <div class="author-info">
+                                <h5>Ananya Reddy</h5>
+                                <p>Bangalore</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="testimonial-card fade-in">
+                        <p class="testimonial-text">
+                            Ordered a custom stitched saree blouse and the fit was perfect! Their attention to detail and customer service is remarkable. Highly recommended!
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Customer">
+                            </div>
+                            <div class="author-info">
+                                <h5>Meera Patel</h5>
+                                <p>Mumbai</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Newsletter -->
+    <section class="container">
+        <div class="newsletter-section fade-in">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h3 class="newsletter-title">Stay Updated</h3>
+                    <p class="mb-4">Subscribe to our newsletter for exclusive offers, new arrivals, and style tips</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                    <p class="mt-3 small">By subscribing, you agree to our Privacy Policy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a href="index.html" class="footer-logo">Mokshitha<span>.</span></a>
+                    <p class="footer-about">
+                        Bringing you the finest collection of traditional sarees and contemporary dresses since 2010. Our mission is to make every woman feel elegant and confident.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="sarees.html">Sarees</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchange</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Chennai, India</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@mokshithacollections.com</li>
+                        <li><i class="fas fa-clock me-2"></i> Mon-Sat: 10AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mokshitha Collections. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--light-sea-green);"></i> for elegant women</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Fade in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const appearOnScroll = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+        
+        // Wishlist toggle
+        document.querySelectorAll('.product-wishlist').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const icon = this.querySelector('i');
+                if (icon.classList.contains('far')) {
+                    icon.classList.remove('far');
+                    icon.classList.add('fas');
+                    this.classList.add('active');
+                    
+                    // Update wishlist count
+                    const wishlistCount = document.querySelector('.wishlist-icon .cart-count');
+                    let count = parseInt(wishlistCount.textContent);
+                    wishlistCount.textContent = count + 1;
+                } else {
+                    icon.classList.remove('fas');
+                    icon.classList.add('far');
+                    this.classList.remove('active');
+                    
+                    // Update wishlist count
+                    const wishlistCount = document.querySelector('.wishlist-icon .cart-count');
+                    let count = parseInt(wishlistCount.textContent);
+                    if (count > 0) {
+                        wishlistCount.textContent = count - 1;
+                    }
+                }
+            });
+        });
+        
+        // Add to cart functionality
+        document.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const productTitle = this.closest('.product-card').querySelector('.product-title').textContent;
+                
+                // Update cart count
+                const cartCount = document.querySelector('.cart-icon .cart-count');
+                let count = parseInt(cartCount.textContent);
+                cartCount.textContent = count + 1;
+                
+                // Show notification
+                showNotification(`${productTitle} added to cart!`);
+                
+                // Button feedback
+                const originalText = this.textContent;
+                this.textContent = 'Added!';
+                this.style.background = 'var(--dark-sea-green)';
+                this.style.color = 'white';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = 'transparent';
+                    this.style.color = 'var(--dark-sea-green)';
+                }, 1500);
+            });
+        });
+        
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 10000;
+                transform: translateX(150%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Search functionality
+        document.querySelector('.search-icon').addEventListener('click', function() {
+            const searchBox = document.createElement('div');
+            searchBox.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 10001;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            searchBox.innerHTML = `
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; position: relative;">
+                    <button class="close-search" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+                    <h3 style="margin-bottom: 20px; color: var(--dark-text);">Search Products</h3>
+                    <div style="display: flex;">
+                        <input type="text" placeholder="Search for sarees, dresses, collections..." 
+                               style="flex: 1; padding: 15px; border: 2px solid #eee; border-radius: 5px 0 0 5px; font-size: 1rem;">
+                        <button style="background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green)); color: white; border: none; padding: 0 30px; border-radius: 0 5px 5px 0; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                        <p>Popular searches: <a href="#" style="color: var(--dark-sea-green); margin-right: 10px;">Silk Sarees</a> 
+                        <a href="#" style="color: var(--dark-sea-green); margin-right: 10px;">Evening Dresses</a> 
+                        <a href="#" style="color: var(--dark-sea-green);">Party Wear</a></p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(searchBox);
+            
+            // Close search
+            searchBox.querySelector('.close-search').addEventListener('click', function() {
+                document.body.removeChild(searchBox);
+            });
+            
+            // Close on background click
+            searchBox.addEventListener('click', function(e) {
+                if (e.target === searchBox) {
+                    document.body.removeChild(searchBox);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
