@@ -1,0 +1,2058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Blue Silk Saree | Mokshitha Collections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Image Zoom Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/zoomove/1.0.0/zoomove.min.css">
+    <style>
+        :root {
+            --dark-sea-green: #2E8B57;
+            --light-sea-green: #20B2AA;
+            --light-cream: #FFF8F0;
+            --gold-accent: #D4AF37;
+            --dark-text: #2C3E50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-color: #fefefe;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Header Styles (Reuse from shop.html) */
+        .header-top {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .main-header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-accent);
+        }
+        
+        .nav-link {
+            color: var(--dark-text) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--dark-sea-green) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--dark-sea-green) !important;
+            font-weight: 600;
+        }
+        
+        .header-icons .icon {
+            position: relative;
+            margin-left: 20px;
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .header-icons .icon:hover {
+            color: var(--dark-sea-green);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--light-sea-green);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Product Detail Page Styles */
+        .product-detail-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1569396116182-6a42e5dd3c6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 0;
+        }
+        
+        .breadcrumb-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .breadcrumb-item.active {
+            color: var(--gold-accent);
+        }
+        
+        /* Product Detail Container */
+        .product-detail-container {
+            padding: 60px 0;
+        }
+        
+        /* Product Gallery */
+        .product-gallery {
+            position: sticky;
+            top: 100px;
+        }
+        
+        .main-image-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            cursor: zoom-in;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .thumbnail-container {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+        
+        .thumbnail {
+            width: 90px;
+            height: 90px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 3px solid transparent;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+        
+        .thumbnail.active {
+            border-color: var(--dark-sea-green);
+        }
+        
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Product Info */
+        .product-info {
+            padding-left: 40px;
+        }
+        
+        .product-category {
+            color: var(--light-sea-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .product-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .product-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .stars {
+            color: var(--gold-accent);
+            margin-right: 10px;
+        }
+        
+        .rating-count {
+            color: #666;
+            margin: 0 15px;
+        }
+        
+        .product-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-sea-green);
+            margin-bottom: 10px;
+        }
+        
+        .old-price {
+            font-size: 1.3rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+        
+        .discount-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-left: 15px;
+            vertical-align: middle;
+        }
+        
+        .product-description {
+            color: #666;
+            line-height: 1.7;
+            margin: 25px 0;
+            font-size: 1.05rem;
+        }
+        
+        /* Product Meta */
+        .product-meta {
+            display: flex;
+            gap: 30px;
+            margin: 25px 0;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .meta-icon {
+            background: rgba(46, 139, 87, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--dark-sea-green);
+        }
+        
+        .meta-text h6 {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .meta-text p {
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        /* Options */
+        .option-group {
+            margin-bottom: 25px;
+        }
+        
+        .option-title {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .color-option.active {
+            border-color: var(--dark-sea-green);
+            transform: scale(1.1);
+        }
+        
+        .color-option.active::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .size-option {
+            padding: 10px 20px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            min-width: 60px;
+            text-align: center;
+        }
+        
+        .size-option:hover {
+            border-color: var(--light-sea-green);
+            color: var(--dark-sea-green);
+        }
+        
+        .size-option.active {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            border-color: var(--dark-sea-green);
+        }
+        
+        .size-option.disabled {
+            background: #f5f5f5;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        /* Quantity */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .qty-btn {
+            width: 45px;
+            height: 45px;
+            background: #f8f9fa;
+            border: 2px solid #eee;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .qty-btn:hover {
+            background: #e9ecef;
+            border-color: #ddd;
+        }
+        
+        .qty-input {
+            width: 70px;
+            height: 45px;
+            border: 2px solid #eee;
+            border-left: none;
+            border-right: none;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        
+        .qty-input:focus {
+            outline: none;
+            border-color: var(--dark-sea-green);
+        }
+        
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--dark-sea-green);
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            color: var(--dark-sea-green);
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(46, 139, 87, 0.05);
+        }
+        
+        .wishlist-btn {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #666;
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        
+        .wishlist-btn:hover, .wishlist-btn.active {
+            color: #ff4757;
+            border-color: #ff4757;
+            background: rgba(255, 71, 87, 0.05);
+        }
+        
+        /* Product Tabs */
+        .product-tabs {
+            margin: 60px 0;
+        }
+        
+        .nav-tabs {
+            border-bottom: 2px solid #eee;
+            justify-content: center;
+        }
+        
+        .nav-tabs .nav-link {
+            border: none;
+            color: #666;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            position: relative;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            color: var(--dark-sea-green);
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: var(--dark-sea-green);
+            background: transparent;
+        }
+        
+        .nav-tabs .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--dark-sea-green), var(--light-sea-green));
+        }
+        
+        .tab-content {
+            padding: 40px 0;
+        }
+        
+        .tab-pane h4 {
+            margin-bottom: 20px;
+            color: var(--dark-text);
+        }
+        
+        .specifications table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .specifications tr {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .specifications td {
+            padding: 15px 10px;
+        }
+        
+        .specifications td:first-child {
+            font-weight: 600;
+            color: #555;
+            width: 30%;
+        }
+        
+        .reviews-container {
+            max-width: 800px;
+        }
+        
+        .review-item {
+            border-bottom: 1px solid #eee;
+            padding: 25px 0;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--dark-text);
+        }
+        
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .review-rating {
+            color: var(--gold-accent);
+            margin-bottom: 10px;
+        }
+        
+        .review-text {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Size Guide Modal */
+        .size-guide-btn {
+            background: transparent;
+            border: none;
+            color: var(--light-sea-green);
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-left: 20px;
+        }
+        
+        /* Related Products */
+        .related-products {
+            padding: 60px 0;
+            background: #f9f9f9;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-text);
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dark-sea-green), var(--light-sea-green));
+        }
+        
+        /* Product Card (reuse from shop) */
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            background: white;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        .product-title-sm {
+            font-size: 1rem;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            font-weight: 600;
+            height: 2.5rem;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .product-price-sm {
+            color: var(--dark-sea-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        /* Footer (Reuse) */
+        .footer-section {
+            background: #1a1a1a;
+            color: #ddd;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--light-sea-green);
+        }
+        
+        .footer-title {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--light-sea-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-sea-green);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--light-sea-green);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            border: none;
+        }
+        
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .product-info {
+                padding-left: 0;
+                margin-top: 40px;
+            }
+            
+            .main-image {
+                height: 400px;
+            }
+            
+            .product-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+            
+            .product-meta {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .main-image {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .product-title {
+                font-size: 1.8rem;
+            }
+            
+            .main-image {
+                height: 300px;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Zoom Container */
+        .zoom-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .zoom-lens {
+            position: absolute;
+            border: 1px solid var(--dark-sea-green);
+            background: rgba(46, 139, 87, 0.1);
+            cursor: crosshair;
+            display: none;
+        }
+        
+        .zoom-result {
+            position: absolute;
+            border: 1px solid #ddd;
+            background: white;
+            overflow: hidden;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top Bar -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43210 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <i class="fas fa-envelope"></i> info@mokshithacollections.com
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span>Free Shipping on Orders Above ₹1999</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="index.html" class="logo">Mokshitha<span>.</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-block">
+                    <nav class="navbar navbar-expand-lg justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop.html">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="collections.html">Collections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 text-end">
+                    <div class="header-icons d-inline-flex align-items-center">
+                        <div class="icon search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="icon user-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="icon wishlist-icon">
+                            <i class="far fa-heart"></i>
+                            <span class="cart-count">3</span>
+                        </div>
+                        <div class="icon cart-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">2</span>
+                        </div>
+                        <button class="navbar-toggler d-md-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="collapse d-md-none" id="mobileMenu">
+                <ul class="navbar-nav mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Product Header -->
+    <section class="product-detail-header">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="shop.html">Shop</a></li>
+                    <li class="breadcrumb-item"><a href="sarees.html">Sarees</a></li>
+                    <li class="breadcrumb-item active">Royal Blue Silk Saree</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+    
+    <!-- Product Detail -->
+    <section class="product-detail-container">
+        <div class="container">
+            <div class="row">
+                <!-- Product Gallery -->
+                <div class="col-lg-6">
+                    <div class="product-gallery">
+                        <div class="main-image-container" id="mainImageContainer">
+                            <img src="https://cdn.pixabay.com/photo/2015/04/15/15/02/saree-723940_640.jpg" 
+                                 alt="Royal Blue Silk Saree" 
+                                 class="main-image" 
+                                 id="mainImage"
+                                 data-zoom-image="https://cdn.pixabay.com/photo/2015/04/15/15/02/saree-723940_640.jpg">
+                        </div>
+                        
+                        <div class="thumbnail-container">
+                            <div class="thumbnail active" data-image="https://cdn.pixabay.com/photo/2015/04/15/15/02/saree-723940_640.jpg" 
+                                 data-zoom="https://cdn.pixabay.com/photo/2015/04/15/15/02/saree-723940_640.jpg">
+                                <img src="https://cdn.pixabay.com/photo/2015/04/15/15/02/saree-723940_640.jpg" alt="Front View">
+                            </div>
+                            <div class="thumbnail" data-image="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                 data-zoom="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Back View">
+                            </div>
+                            <div class="thumbnail" data-image="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                 data-zoom="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Detail View">
+                            </div>
+                            <div class="thumbnail" data-image="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                 data-zoom="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80">
+                                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Fabric Closeup">
+                            </div>
+                            <div class="thumbnail" data-image="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                 data-zoom="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80">
+                                <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Model Wearing">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product Information -->
+                <div class="col-lg-6">
+                    <div class="product-info">
+                        <span class="product-category">Mokshitha Collections • Silk Sarees</span>
+                        <h1 class="product-title">Royal Blue Pure Silk Saree with Zari Border</h1>
+                        
+                        <div class="product-rating">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">4.5 (42 Reviews)</span>
+                            <span>•</span>
+                            <span>125 Sold</span>
+                        </div>
+                        
+                        <div class="product-price">
+                            ₹4,599 <span class="old-price">₹6,499</span>
+                            <span class="discount-badge">Save 29%</span>
+                        </div>
+                        
+                        <p class="product-description">
+                            Experience timeless elegance with our Royal Blue Pure Silk Saree. Handcrafted by skilled artisans, this masterpiece features intricate zari work, delicate embroidery, and a luxurious drape that exudes sophistication. Perfect for weddings, festivals, and special occasions.
+                        </p>
+                        
+                        <div class="product-meta">
+                            <div class="meta-item">
+                                <div class="meta-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div class="meta-text">
+                                    <h6>Free Shipping</h6>
+                                    <p>Above ₹1999</p>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">
+                                    <i class="fas fa-exchange-alt"></i>
+                                </div>
+                                <div class="meta-text">
+                                    <h6>Easy Returns</h6>
+                                    <p>15 Days Policy</p>
+                                </div>
+                            </div>
+                            <div class="meta-item">
+                                <div class="meta-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="meta-text">
+                                    <h6>Quality Assurance</h6>
+                                    <p>100% Authentic</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Color Options -->
+                        <div class="option-group">
+                            <h4 class="option-title">Color: <span id="selectedColor">Royal Blue</span></h4>
+                            <div class="color-options">
+                                <div class="color-option active" style="background: #2E8B57;" data-color="Sea Green" data-color-name="Sea Green"></div>
+                                <div class="color-option" style="background: #00008B;" data-color="Royal Blue" data-color-name="Royal Blue"></div>
+                                <div class="color-option" style="background: #8B0000;" data-color="Maroon" data-color-name="Maroon"></div>
+                                <div class="color-option" style="background: #4B0082;" data-color="Purple" data-color-name="Purple"></div>
+                                <div class="color-option" style="background: #FFD700;" data-color="Gold" data-color-name="Gold"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Size Options -->
+                        <div class="option-group">
+                            <h4 class="option-title">Size 
+                                <button class="size-guide-btn" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">
+                                    Size Guide
+                                </button>
+                            </h4>
+                            <div class="size-options">
+                                <div class="size-option active" data-size="Free Size">Free Size</div>
+                                <div class="size-option" data-size="S">S</div>
+                                <div class="size-option" data-size="M">M</div>
+                                <div class="size-option" data-size="L">L</div>
+                                <div class="size-option" data-size="XL">XL</div>
+                                <div class="size-option disabled" data-size="XXL">XXL</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Quantity -->
+                        <div class="option-group">
+                            <h4 class="option-title">Quantity</h4>
+                            <div class="quantity-selector">
+                                <button class="qty-btn" id="decreaseQty">-</button>
+                                <input type="number" class="qty-input" id="quantity" value="1" min="1" max="10">
+                                <button class="qty-btn" id="increaseQty">+</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="action-buttons">
+                            <button class="btn-primary" id="addToCartBtn">
+                                <i class="fas fa-shopping-bag me-2"></i> Add to Cart
+                            </button>
+                            <button class="btn-secondary" id="buyNowBtn">
+                                <i class="fas fa-bolt me-2"></i> Buy Now
+                            </button>
+                            <button class="wishlist-btn" id="wishlistBtn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Product Tags -->
+                        <div class="mt-4">
+                            <span class="badge bg-light text-dark me-2 p-2">Pure Silk</span>
+                            <span class="badge bg-light text-dark me-2 p-2">Zari Work</span>
+                            <span class="badge bg-light text-dark me-2 p-2">Wedding Wear</span>
+                            <span class="badge bg-light text-dark me-2 p-2">Festival Collection</span>
+                            <span class="badge bg-light text-dark p-2">Handcrafted</span>
+                        </div>
+                        
+                        <!-- Share -->
+                        <div class="mt-4">
+                            <p class="mb-2">Share this product:</p>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon" style="background: #3b5998;"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon" style="background: #e4405f;"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon" style="background: #1da1f2;"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon" style="background: #0e76a8;"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="#" class="social-icon" style="background: #bd081c;"><i class="fab fa-pinterest-p"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product Tabs -->
+            <div class="product-tabs">
+                <ul class="nav nav-tabs" id="productTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="description-tab" data-bs-toggle="tab" data-bs-target="#description" type="button" role="tab">Description</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="specifications-tab" data-bs-toggle="tab" data-bs-target="#specifications" type="button" role="tab">Specifications</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="care-tab" data-bs-toggle="tab" data-bs-target="#care" type="button" role="tab">Care Instructions</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">Reviews (42)</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="shipping-tab" data-bs-toggle="tab" data-bs-target="#shipping" type="button" role="tab">Shipping & Returns</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="productTabContent">
+                    <!-- Description Tab -->
+                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <h4>Product Details</h4>
+                                <p class="mb-4">This exquisite Royal Blue Pure Silk Saree is a masterpiece of traditional Indian craftsmanship combined with contemporary elegance. Each saree is meticulously woven by skilled artisans, ensuring the highest quality and attention to detail.</p>
+                                
+                                <h5>Key Features:</h5>
+                                <ul class="mb-4">
+                                    <li><strong>Fabric:</strong> 100% Pure Mulberry Silk with luxurious drape</li>
+                                    <li><strong>Border:</strong> Intricate Zari work with gold and silver threads</li>
+                                    <li><strong>Pallu:</strong> Heavy embroidery with traditional motifs</li>
+                                    <li><strong>Blouse:</strong> Matching blouse piece included (2 meters)</li>
+                                    <li><strong>Length:</strong> Standard 5.5 meters with 1 meter for blouse</li>
+                                    <li><strong>Weight:</strong> Approximately 800 grams</li>
+                                </ul>
+                                
+                                <h5>Design Elements:</h5>
+                                <p>The saree features intricate floral patterns woven with precision. The border showcases traditional temple designs, while the pallu displays a majestic peacock motif symbolizing grace and beauty.</p>
+                                
+                                <h5>Occasion:</h5>
+                                <p>Perfect for weddings, festivals, religious ceremonies, and special occasions. This saree makes you stand out with its royal elegance.</p>
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Detail" class="img-fluid rounded">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Specifications Tab -->
+                    <div class="tab-pane fade" id="specifications" role="tabpanel">
+                        <div class="specifications">
+                            <table>
+                                <tr>
+                                    <td>Fabric Type</td>
+                                    <td>100% Pure Mulberry Silk</td>
+                                </tr>
+                                <tr>
+                                    <td>Weave</td>
+                                    <td>Handwoven</td>
+                                </tr>
+                                <tr>
+                                    <td>Work</td>
+                                    <td>Zari, Embroidery</td>
+                                </tr>
+                                <tr>
+                                    <td>Color</td>
+                                    <td>Royal Blue</td>
+                                </tr>
+                                <tr>
+                                    <td>Border Type</td>
+                                    <td>Heavy Zari Border (4 inches)</td>
+                                </tr>
+                                <tr>
+                                    <td>Saree Length</td>
+                                    <td>5.5 meters</td>
+                                </tr>
+                                <tr>
+                                    <td>Blouse Length</td>
+                                    <td>1 meter (included)</td>
+                                </tr>
+                                <tr>
+                                    <td>Weight</td>
+                                    <td>800 grams (approx)</td>
+                                </tr>
+                                <tr>
+                                    <td>Transparency</td>
+                                    <td>Opaque</td>
+                                </tr>
+                                <tr>
+                                    <td>Maintenance</td>
+                                    <td>Dry Clean Only</td>
+                                </tr>
+                                <tr>
+                                    <td>Country of Origin</td>
+                                    <td>India</td>
+                                </tr>
+                                <tr>
+                                    <td>Artisan</td>
+                                    <td>Handcrafted by weavers from Kanchipuram</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Care Instructions Tab -->
+                    <div class="tab-pane fade" id="care" role="tabpanel">
+                        <h4>Care Instructions for Silk Sarees</h4>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-check-circle text-success me-2"></i> Do's</h5>
+                                <ul>
+                                    <li>Always dry clean your silk saree</li>
+                                    <li>Store in a cool, dry place away from direct sunlight</li>
+                                    <li>Wrap in muslin cloth or cotton for storage</li>
+                                    <li>Use padded hangers for storage if needed</li>
+                                    <li>Iron on low heat with a cloth barrier</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-times-circle text-danger me-2"></i> Don'ts</h5>
+                                <ul>
+                                    <li>Never machine wash or soak in water</li>
+                                    <li>Avoid contact with perfumes and deodorants</li>
+                                    <li>Don't store in plastic covers for long periods</li>
+                                    <li>Avoid direct heat while ironing</li>
+                                    <li>Don't hang with metal clips</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-4">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Pro Tip:</strong> To maintain the zari work, sprinkle some talcum powder on the zari portions before storing to prevent tarnishing.
+                        </div>
+                    </div>
+                    
+                    <!-- Reviews Tab -->
+                    <div class="tab-pane fade" id="reviews" role="tabpanel">
+                        <div class="reviews-container">
+                            <h4>Customer Reviews</h4>
+                            <div class="d-flex align-items-center mb-4">
+                                <div class="me-4">
+                                    <div class="display-4 fw-bold">4.5</div>
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <div class="text-muted">Based on 42 reviews</div>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <div class="mb-2">
+                                        <span class="me-2">5 Stars</span>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 65%"></div>
+                                        </div>
+                                        <span class="ms-2">27</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="me-2">4 Stars</span>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 20%"></div>
+                                        </div>
+                                        <span class="ms-2">8</span>
+                                    </div>
+                                    <div class="mb-2">
+                                        <span class="me-2">3 Stars</span>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 10%"></div>
+                                        </div>
+                                        <span class="ms-2">4</span>
+                                    </div>
+                                    <div>
+                                        <span class="me-2">1-2 Stars</span>
+                                        <div class="progress" style="height: 8px;">
+                                            <div class="progress-bar bg-warning" style="width: 5%"></div>
+                                        </div>
+                                        <span class="ms-2">3</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Review Items -->
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div>
+                                        <span class="reviewer-name">Priya Sharma</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-date">2 weeks ago</div>
+                                </div>
+                                <p class="review-text">Absolutely stunning saree! The color is even more beautiful in person. The zari work is exquisite and the fabric feels luxurious. Received so many compliments at my sister's wedding. Perfect fit and excellent quality.</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div>
+                                        <span class="reviewer-name">Ananya Reddy</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-date">1 month ago</div>
+                                </div>
+                                <p class="review-text">The saree is beautiful and the quality is top-notch. However, it's a bit heavier than expected. The blouse piece provided is perfect. Delivery was prompt and packaging was excellent. Will definitely shop again!</p>
+                            </div>
+                            
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div>
+                                        <span class="reviewer-name">Meera Patel</span>
+                                        <div class="review-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="review-date">2 months ago</div>
+                                </div>
+                                <p class="review-text">This is my third purchase from Mokshitha Collections and they never disappoint. The royal blue color is majestic and the embroidery is flawless. The saree drapes beautifully. Highly recommended for wedding functions!</p>
+                            </div>
+                            
+                            <button class="btn btn-outline-primary mt-4">Load More Reviews</button>
+                            <button class="btn btn-primary mt-4 ms-3" data-bs-toggle="modal" data-bs-target="#writeReviewModal">
+                                <i class="fas fa-pen me-2"></i> Write a Review
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Shipping Tab -->
+                    <div class="tab-pane fade" id="shipping" role="tabpanel">
+                        <h4>Shipping Information</h4>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-shipping-fast text-primary me-2"></i> Delivery</h5>
+                                <ul>
+                                    <li><strong>Processing Time:</strong> 1-2 business days</li>
+                                    <li><strong>Shipping Time:</strong> 3-7 business days</li>
+                                    <li><strong>Express Delivery:</strong> Available at extra cost</li>
+                                    <li><strong>Free Shipping:</strong> On orders above ₹1999</li>
+                                    <li><strong>Shipping Partners:</strong> Delhivery, BlueDart, India Post</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h5><i class="fas fa-exchange-alt text-success me-2"></i> Returns & Exchange</h5>
+                                <ul>
+                                    <li><strong>Return Period:</strong> 15 days from delivery</li>
+                                    <li><strong>Condition:</strong> Unworn, unwashed with original tags</li>
+                                    <li><strong>Exchange:</strong> Free size/color exchange</li>
+                                    <li><strong>Refund:</strong> Processed within 7 business days</li>
+                                    <li><strong>Contact:</strong> support@mokshithacollections.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="alert alert-warning mt-4">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Note:</strong> Customized/blouse stitched products cannot be returned unless defective.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Related Products -->
+            <div class="related-products">
+                <div class="section-title">
+                    <h2>You May Also Like</h2>
+                    <p class="mt-3">Similar products you might love</p>
+                </div>
+                
+                <div class="row">
+                    <!-- Related Product 1 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Saree">
+                                <div class="product-badge">Bestseller</div>
+                            </div>
+                            <div class="product-content">
+                                <a href="#" class="product-title-sm">Maroon Designer Silk Saree</a>
+                                <div class="product-price-sm">₹5,299</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Product 2 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Georgette Saree">
+                                <div class="product-badge new">New</div>
+                            </div>
+                            <div class="product-content">
+                                <a href="#" class="product-title-sm">Green Georgette Printed Saree</a>
+                                <div class="product-price-sm">₹3,599</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Product 3 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1585487000160-6eb9ce6b5a5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lehenga">
+                                <div class="product-badge sale">-25%</div>
+                            </div>
+                            <div class="product-content">
+                                <a href="#" class="product-title-sm">Purple Lehenga Choli Set</a>
+                                <div class="product-price-sm">₹8,499 <span class="old-price">₹11,299</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Related Product 4 -->
+                    <div class="col-xl-3 col-lg-4 col-md-6">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dress">
+                            </div>
+                            <div class="product-content">
+                                <a href="#" class="product-title-sm">Floral Summer Maxi Dress</a>
+                                <div class="product-price-sm">₹2,899</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a href="index.html" class="footer-logo">Mokshitha<span>.</span></a>
+                    <p class="footer-about">
+                        Bringing you the finest collection of traditional sarees and contemporary dresses since 2010. Our mission is to make every woman feel elegant and confident.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="sarees.html">Sarees</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchange</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Chennai, India</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@mokshithacollections.com</li>
+                        <li><i class="fas fa-clock me-2"></i> Mon-Sat: 10AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mokshitha Collections. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--light-sea-green);"></i> for elegant women</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Size Guide Modal -->
+    <div class="modal fade" id="sizeGuideModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Saree Size Guide</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Size</th>
+                                    <th>Blouse Size (Inches)</th>
+                                    <th>Bust</th>
+                                    <th>Waist</th>
+                                    <th>Hip</th>
+                                    <th>Saree Length</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>S</td>
+                                    <td>30-32</td>
+                                    <td>34"</td>
+                                    <td>28"</td>
+                                    <td>36"</td>
+                                    <td>5.5m</td>
+                                </tr>
+                                <tr>
+                                    <td>M</td>
+                                    <td>32-34</td>
+                                    <td>36"</td>
+                                    <td>30"</td>
+                                    <td>38"</td>
+                                    <td>5.5m</td>
+                                </tr>
+                                <tr>
+                                    <td>L</td>
+                                    <td>34-36</td>
+                                    <td>38"</td>
+                                    <td>32"</td>
+                                    <td>40"</td>
+                                    <td>5.5m</td>
+                                </tr>
+                                <tr>
+                                    <td>XL</td>
+                                    <td>36-38</td>
+                                    <td>40"</td>
+                                    <td>34"</td>
+                                    <td>42"</td>
+                                    <td>5.5m</td>
+                                </tr>
+                                <tr>
+                                    <td>Free Size</td>
+                                    <td>Adjustable</td>
+                                    <td>34-38"</td>
+                                    <td>28-32"</td>
+                                    <td>36-40"</td>
+                                    <td>5.5m</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert alert-info mt-3">
+                        <i class="fas fa-ruler-combined me-2"></i>
+                        <strong>Measurement Tips:</strong> For custom blouses, measure your bust, waist, and hip while wearing your regular undergarments.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Write Review Modal -->
+    <div class="modal fade" id="writeReviewModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Write a Review</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="reviewForm">
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <div class="star-rating">
+                                <i class="far fa-star" data-rating="1"></i>
+                                <i class="far fa-star" data-rating="2"></i>
+                                <i class="far fa-star" data-rating="3"></i>
+                                <i class="far fa-star" data-rating="4"></i>
+                                <i class="far fa-star" data-rating="5"></i>
+                            </div>
+                            <input type="hidden" id="ratingValue" value="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="reviewTitle" class="form-label">Review Title</label>
+                            <input type="text" class="form-control" id="reviewTitle" placeholder="Summarize your experience">
+                        </div>
+                        <div class="mb-3">
+                            <label for="reviewText" class="form-label">Your Review</label>
+                            <textarea class="form-control" id="reviewText" rows="4" placeholder="Share your experience with this product..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zoomove/1.0.0/zoomove.min.js"></script>
+    <script>
+        // Product Gallery Thumbnail Switching
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.getElementById('mainImage');
+        const mainImageContainer = document.getElementById('mainImageContainer');
+        
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked thumbnail
+                this.classList.add('active');
+                
+                // Change main image
+                const newImage = this.getAttribute('data-image');
+                const newZoomImage = this.getAttribute('data-zoom');
+                
+                mainImage.src = newImage;
+                mainImage.setAttribute('data-zoom-image', newZoomImage);
+                
+                // Reinitialize zoom on new image
+                initImageZoom();
+            });
+        });
+        
+        // Image Zoom Functionality
+        function initImageZoom() {
+            const zoomContainer = document.createElement('div');
+            zoomContainer.className = 'zoom-container';
+            
+            const lens = document.createElement('div');
+            lens.className = 'zoom-lens';
+            
+            const result = document.createElement('div');
+            result.className = 'zoom-result';
+            
+            // Clear previous zoom elements
+            const existingZoom = mainImageContainer.querySelector('.zoom-container');
+            if (existingZoom) {
+                existingZoom.remove();
+            }
+            
+            // Setup zoom
+            mainImageContainer.addEventListener('mousemove', moveLens);
+            mainImageContainer.addEventListener('mouseenter', showZoom);
+            mainImageContainer.addEventListener('mouseleave', hideZoom);
+            
+            function showZoom(e) {
+                lens.style.display = 'block';
+                result.style.display = 'block';
+                moveLens(e);
+            }
+            
+            function hideZoom() {
+                lens.style.display = 'none';
+                result.style.display = 'none';
+            }
+            
+            function moveLens(e) {
+                e.preventDefault();
+                
+                const cx = e.clientX - mainImageContainer.getBoundingClientRect().left;
+                const cy = e.clientY - mainImageContainer.getBoundingClientRect().top;
+                
+                // Lens position
+                let x = cx - lens.offsetWidth / 2;
+                let y = cy - lens.offsetHeight / 2;
+                
+                // Keep lens within bounds
+                const maxX = mainImageContainer.offsetWidth - lens.offsetWidth;
+                const maxY = mainImageContainer.offsetHeight - lens.offsetHeight;
+                
+                x = Math.max(0, Math.min(x, maxX));
+                y = Math.max(0, Math.min(y, maxY));
+                
+                lens.style.left = x + 'px';
+                lens.style.top = y + 'px';
+                
+                // Result image position
+                const resultX = (x / maxX) * 100;
+                const resultY = (y / maxY) * 100;
+                
+                result.style.backgroundImage = `url('${mainImage.getAttribute('data-zoom-image')}')`;
+                result.style.backgroundPosition = `${resultX}% ${resultY}%`;
+                result.style.left = mainImageContainer.offsetWidth + 10 + 'px';
+                result.style.top = '0';
+                result.style.width = '400px';
+                result.style.height = '400px';
+            }
+            
+            // Create lens and result divs
+            lens.style.width = '100px';
+            lens.style.height = '100px';
+            
+            zoomContainer.appendChild(mainImage.cloneNode(true));
+            zoomContainer.appendChild(lens);
+            zoomContainer.appendChild(result);
+            
+            mainImageContainer.innerHTML = '';
+            mainImageContainer.appendChild(zoomContainer);
+        }
+        
+        // Initialize zoom on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initImageZoom();
+        });
+        
+        // Color Selection
+        const colorOptions = document.querySelectorAll('.color-option');
+        const selectedColorSpan = document.getElementById('selectedColor');
+        
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                colorOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                selectedColorSpan.textContent = this.getAttribute('data-color-name');
+            });
+        });
+        
+        // Size Selection
+        const sizeOptions = document.querySelectorAll('.size-option:not(.disabled)');
+        
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                if (!this.classList.contains('disabled')) {
+                    sizeOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Quantity Selector
+        const quantityInput = document.getElementById('quantity');
+        const decreaseBtn = document.getElementById('decreaseQty');
+        const increaseBtn = document.getElementById('increaseQty');
+        
+        decreaseBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        });
+        
+        increaseBtn.addEventListener('click', function() {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        });
+        
+        // Wishlist Button
+        const wishlistBtn = document.getElementById('wishlistBtn');
+        const wishlistIcon = document.querySelector('.wishlist-icon .cart-count');
+        
+        wishlistBtn.addEventListener('click', function() {
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('far')) {
+                icon.classList.remove('far');
+                icon.classList.add('fas');
+                this.classList.add('active');
+                
+                // Update wishlist count
+                let count = parseInt(wishlistIcon.textContent);
+                wishlistIcon.textContent = count + 1;
+                
+                showNotification('Added to wishlist!');
+            } else {
+                icon.classList.remove('fas');
+                icon.classList.add('far');
+                this.classList.remove('active');
+                
+                // Update wishlist count
+                let count = parseInt(wishlistIcon.textContent);
+                if (count > 0) {
+                    wishlistIcon.textContent = count - 1;
+                }
+                
+                showNotification('Removed from wishlist');
+            }
+        });
+        
+        // Add to Cart
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const cartCount = document.querySelector('.cart-icon .cart-count');
+        
+        addToCartBtn.addEventListener('click', function() {
+            const productTitle = document.querySelector('.product-title').textContent;
+            const quantity = quantityInput.value;
+            const selectedColor = document.querySelector('.color-option.active').getAttribute('data-color-name');
+            const selectedSize = document.querySelector('.size-option.active').getAttribute('data-size');
+            
+            // Update cart count
+            let count = parseInt(cartCount.textContent);
+            cartCount.textContent = count + parseInt(quantity);
+            
+            showNotification(`Added ${quantity} × ${productTitle} to cart!`);
+            
+            // Button feedback
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-check me-2"></i> Added to Cart';
+            this.style.background = '#28a745';
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.background = '';
+            }, 2000);
+        });
+        
+        // Buy Now Button
+        document.getElementById('buyNowBtn').addEventListener('click', function() {
+            showNotification('Redirecting to checkout...');
+            setTimeout(() => {
+                window.location.href = 'checkout.html';
+            }, 1000);
+        });
+        
+        // Star Rating in Review Modal
+        const reviewStars = document.querySelectorAll('.star-rating i');
+        const ratingValue = document.getElementById('ratingValue');
+        
+        reviewStars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                ratingValue.value = rating;
+                
+                reviewStars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= rating) {
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseover', function() {
+                const hoverRating = this.getAttribute('data-rating');
+                reviewStars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= hoverRating) {
+                        s.classList.add('fas');
+                        s.classList.remove('far');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                const currentRating = ratingValue.value;
+                reviewStars.forEach(s => {
+                    if (s.getAttribute('data-rating') > currentRating) {
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+        
+        // Review Form Submission
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const rating = ratingValue.value;
+            const title = document.getElementById('reviewTitle').value;
+            const text = document.getElementById('reviewText').value;
+            
+            if (rating === '0') {
+                alert('Please select a rating');
+                return;
+            }
+            
+            showNotification('Thank you for your review!');
+            const modal = bootstrap.Modal.getInstance(document.getElementById('writeReviewModal'));
+            modal.hide();
+            
+            // Reset form
+            this.reset();
+            ratingValue.value = '0';
+            reviewStars.forEach(s => {
+                s.classList.remove('fas');
+                s.classList.add('far');
+            });
+        });
+        
+        // Search functionality (reuse from previous pages)
+        document.querySelector('.search-icon').addEventListener('click', showSearchModal);
+        
+        // Common functions
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 10000;
+                transform: translateX(150%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        function showSearchModal() {
+            const searchBox = document.createElement('div');
+            searchBox.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 10001;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            searchBox.innerHTML = `
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; position: relative;">
+                    <button class="close-search" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+                    <h3 style="margin-bottom: 20px; color: var(--dark-text);">Search Products</h3>
+                    <div style="display: flex;">
+                        <input type="text" placeholder="Search for sarees, dresses, collections..." 
+                               style="flex: 1; padding: 15px; border: 2px solid #eee; border-radius: 5px 0 0 5px; font-size: 1rem;">
+                        <button style="background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green)); color: white; border: none; padding: 0 30px; border-radius: 0 5px 5px 0; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                        <p>Popular searches: <a href="#" style="color: var(--dark-sea-green); margin-right: 10px;">Silk Sarees</a> 
+                        <a href="#" style="color: var(--dark-sea-green); margin-right: 10px;">Evening Dresses</a> 
+                        <a href="#" style="color: var(--dark-sea-green);">Party Wear</a></p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(searchBox);
+            
+            searchBox.querySelector('.close-search').addEventListener('click', function() {
+                document.body.removeChild(searchBox);
+            });
+            
+            searchBox.addEventListener('click', function(e) {
+                if (e.target === searchBox) {
+                    document.body.removeChild(searchBox);
+                }
+            });
+        }
+        
+        // Mobile image zoom alternative (tap to view larger)
+        if (window.innerWidth <= 768) {
+            mainImageContainer.style.cursor = 'pointer';
+            mainImageContainer.addEventListener('click', function() {
+                const modal = document.createElement('div');
+                modal.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    z-index: 10000;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                `;
+                
+                modal.innerHTML = `
+                    <div style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <button class="close-zoom" style="position: absolute; top: 20px; right: 20px; background: none; border: none; color: white; font-size: 2rem; z-index: 10001;">×</button>
+                        <img src="${mainImage.src}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                modal.querySelector('.close-zoom').addEventListener('click', function() {
+                    document.body.removeChild(modal);
+                });
+                
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        document.body.removeChild(modal);
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
