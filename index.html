@@ -753,11 +753,11 @@
                         <div class="icon user-icon">
                             <i class="fas fa-user"></i>
                         </div>
-                        <div class="icon wishlist-icon">
+                        <div class="icon wishlist-icon" id="cartIcon">
                             <i class="far fa-heart"></i>
                             <span class="cart-count">3</span>
                         </div>
-                        <div class="icon cart-icon">
+                        <div class="icon cart-icon" id="cartIcon">
                             <i class="fas fa-shopping-bag"></i>
                             <span class="cart-count">2</span>
                         </div>
@@ -778,7 +778,7 @@
                         <a class="nav-link" href="shop.html">Shop</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="collections.html">Collections</a>
+                        <a class="nav-link" href="#categories">Collections</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -1178,6 +1178,11 @@
                     }
                 }
             });
+        });
+
+        const cartIcon = document.getElementById('cartIcon');
+        cartIcon.addEventListener('click', () => {
+            window.location.href = 'cart.html';
         });
         
         // Add to cart functionality

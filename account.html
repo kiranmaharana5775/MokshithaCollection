@@ -1,0 +1,2207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account | Mokshitha Collections</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-sea-green: #2E8B57;
+            --light-sea-green: #20B2AA;
+            --light-cream: #FFF8F0;
+            --gold-accent: #D4AF37;
+            --dark-text: #2C3E50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        /* Header Styles */
+        .header-top {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .main-header {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--gold-accent);
+        }
+        
+        .nav-link {
+            color: var(--dark-text) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: var(--dark-sea-green) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--dark-sea-green) !important;
+            font-weight: 600;
+        }
+        
+        .header-icons .icon {
+            position: relative;
+            margin-left: 20px;
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .header-icons .icon:hover {
+            color: var(--dark-sea-green);
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--light-sea-green);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Account Header */
+        .account-header {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.1), rgba(32, 178, 170, 0.1));
+            padding: 40px 0;
+        }
+        
+        .account-welcome {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .welcome-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-text);
+        }
+        
+        .welcome-text p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .account-stats {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-sea-green);
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Account Container */
+        .account-container {
+            padding: 60px 0;
+        }
+        
+        /* Account Sidebar */
+        .account-sidebar {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 30px;
+            position: sticky;
+            top: 120px;
+            margin-bottom: 30px;
+        }
+        
+        .user-profile {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .user-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+        }
+        
+        .avatar-edit {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            color: var(--dark-sea-green);
+        }
+        
+        .user-name {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            color: var(--dark-text);
+        }
+        
+        .user-email {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .member-since {
+            color: #999;
+            font-size: 0.85rem;
+        }
+        
+        /* Account Menu */
+        .account-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .menu-item {
+            margin-bottom: 10px;
+        }
+        
+        .menu-link {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 10px;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .menu-link:hover {
+            background: rgba(46, 139, 87, 0.05);
+            color: var(--dark-sea-green);
+        }
+        
+        .menu-link.active {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            box-shadow: 0 5px 15px rgba(46, 139, 87, 0.2);
+        }
+        
+        .menu-icon {
+            width: 24px;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        
+        .menu-text {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .menu-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Logout Button */
+        .logout-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            color: #ff6b6b;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+        
+        .logout-btn:hover {
+            background: #ff6b6b;
+            color: white;
+        }
+        
+        /* Account Content */
+        .account-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .content-title {
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin: 0;
+        }
+        
+        /* Dashboard Overview */
+        .dashboard-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .overview-card {
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.05), rgba(32, 178, 170, 0.05));
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: rgba(46, 139, 87, 0.1);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 5px;
+        }
+        
+        .card-label {
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        
+        .card-link {
+            color: var(--dark-sea-green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-link i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .card-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Recent Orders */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .orders-table thead {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+        }
+        
+        .orders-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .orders-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+            transition: background 0.3s;
+        }
+        
+        .orders-table tbody tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .orders-table td {
+            padding: 15px;
+        }
+        
+        .order-id {
+            color: var(--dark-sea-green);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .order-id:hover {
+            text-decoration: underline;
+        }
+        
+        .order-status {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-delivered {
+            background: rgba(46, 139, 87, 0.1);
+            color: var(--dark-sea-green);
+        }
+        
+        .status-processing {
+            background: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+        
+        .status-shipped {
+            background: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+        
+        .status-cancelled {
+            background: rgba(220, 53, 69, 0.1);
+            color: #dc3545;
+        }
+        
+        .action-btn {
+            padding: 8px 15px;
+            border: 2px solid #eee;
+            border-radius: 6px;
+            background: white;
+            color: #666;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .action-btn:hover {
+            border-color: var(--dark-sea-green);
+            color: var(--dark-sea-green);
+            background: rgba(46, 139, 87, 0.05);
+        }
+        
+        /* Wishlist Items */
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+        
+        .wishlist-card {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .wishlist-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .wishlist-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .wishlist-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .wishlist-card:hover .wishlist-image img {
+            transform: scale(1.05);
+        }
+        
+        .wishlist-content {
+            padding: 15px;
+        }
+        
+        .wishlist-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-text);
+            height: 2.5rem;
+            overflow: hidden;
+        }
+        
+        .wishlist-price {
+            color: var(--dark-sea-green);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .wishlist-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .wishlist-remove {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff6b6b;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .wishlist-card:hover .wishlist-remove {
+            opacity: 1;
+        }
+        
+        /* Address Book */
+        .address-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .address-card {
+            border: 2px solid #eee;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .address-card:hover {
+            border-color: #ddd;
+        }
+        
+        .address-card.default {
+            border-color: var(--dark-sea-green);
+            background: rgba(46, 139, 87, 0.02);
+        }
+        
+        .address-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .address-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-text);
+        }
+        
+        .address-type {
+            background: rgba(46, 139, 87, 0.1);
+            color: var(--dark-sea-green);
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .address-details {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .address-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .add-address-card {
+            border: 2px dashed #ddd;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 25px;
+            color: #666;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .add-address-card:hover {
+            border-color: var(--dark-sea-green);
+            color: var(--dark-sea-green);
+            background: rgba(46, 139, 87, 0.02);
+        }
+        
+        .add-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-sea-green);
+        }
+        
+        /* Profile Form */
+        .profile-form .row {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #555;
+            display: block;
+        }
+        
+        .form-control {
+            border: 2px solid #eee;
+            border-radius: 8px;
+            padding: 12px 15px;
+            font-family: 'Poppins', sans-serif;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--dark-sea-green);
+            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+        }
+        
+        .form-text {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green));
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(46, 139, 87, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #ddd;
+            color: #666;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: #f8f9fa;
+            border-color: #ccc;
+        }
+        
+        /* Empty States */
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+        }
+        
+        .empty-icon {
+            font-size: 4rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .empty-title {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .empty-text {
+            color: #999;
+            margin-bottom: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        .footer-section {
+            background: #1a1a1a;
+            color: #ddd;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        .footer-logo span {
+            color: var(--light-sea-green);
+        }
+        
+        .footer-title {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--light-sea-green);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--light-sea-green);
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background: var(--light-sea-green);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .account-sidebar {
+                position: static;
+                margin-bottom: 30px;
+            }
+            
+            .dashboard-overview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .orders-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .account-welcome {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .account-stats {
+                justify-content: center;
+            }
+            
+            .dashboard-overview {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-header {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            
+            .wishlist-grid, .address-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-actions {
+                flex-direction: column;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+        
+        /* Loading Spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Success Message */
+        .success-message {
+            background: rgba(46, 139, 87, 0.1);
+            border: 1px solid rgba(46, 139, 87, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: var(--dark-sea-green);
+            display: none;
+        }
+        
+        .success-message i {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top Bar -->
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <i class="fas fa-phone-alt"></i> +91 98765 43210 &nbsp;&nbsp;|&nbsp;&nbsp;
+                    <i class="fas fa-envelope"></i> info@mokshithacollections.com
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <span>Welcome back, Priya Sharma!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header py-3">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-6">
+                    <a href="index.html" class="logo">Mokshitha<span>.</span></a>
+                </div>
+                <div class="col-lg-6 col-md-4 d-none d-md-block">
+                    <nav class="navbar navbar-expand-lg justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="shop.html">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="collections.html">Collections</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 text-end">
+                    <div class="header-icons d-inline-flex align-items-center">
+                        <div class="icon search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="icon user-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="icon wishlist-icon">
+                            <i class="far fa-heart"></i>
+                            <span class="cart-count">3</span>
+                        </div>
+                        <div class="icon cart-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span class="cart-count">2</span>
+                        </div>
+                        <button class="navbar-toggler d-md-none ms-3" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div class="collapse d-md-none" id="mobileMenu">
+                <ul class="navbar-nav mt-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="shop.html">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="collections.html">Collections</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Account Header -->
+    <section class="account-header">
+        <div class="container">
+            <div class="account-welcome">
+                <div class="welcome-text">
+                    <h1>My Account</h1>
+                    <p>Manage your profile, orders, wishlist and more</p>
+                </div>
+                <div class="account-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">₹12,458</span>
+                        <span class="stat-label">Total Spent</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">7</span>
+                        <span class="stat-label">Orders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">3</span>
+                        <span class="stat-label">Wishlist Items</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Account Container -->
+    <section class="account-container">
+        <div class="container">
+            <div class="row">
+                <!-- Account Sidebar -->
+                <div class="col-lg-3">
+                    <div class="account-sidebar">
+                        <!-- User Profile -->
+                        <div class="user-profile">
+                            <div class="user-avatar">
+                                <span>PS</span>
+                                <div class="avatar-edit">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <h3 class="user-name">Priya Sharma</h3>
+                            <p class="user-email">priya.sharma@example.com</p>
+                            <p class="member-since">Member since July 2022</p>
+                        </div>
+                        
+                        <!-- Account Menu -->
+                        <ul class="account-menu">
+                            <li class="menu-item">
+                                <a href="#dashboard" class="menu-link active" data-content="dashboard">
+                                    <span class="menu-icon"><i class="fas fa-home"></i></span>
+                                    <span class="menu-text">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#orders" class="menu-link" data-content="orders">
+                                    <span class="menu-icon"><i class="fas fa-shopping-bag"></i></span>
+                                    <span class="menu-text">My Orders</span>
+                                    <span class="menu-badge">7</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#wishlist" class="menu-link" data-content="wishlist">
+                                    <span class="menu-icon"><i class="fas fa-heart"></i></span>
+                                    <span class="menu-text">Wishlist</span>
+                                    <span class="menu-badge">3</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#addresses" class="menu-link" data-content="addresses">
+                                    <span class="menu-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                    <span class="menu-text">Address Book</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#profile" class="menu-link" data-content="profile">
+                                    <span class="menu-icon"><i class="fas fa-user"></i></span>
+                                    <span class="menu-text">Profile Details</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#security" class="menu-link" data-content="security">
+                                    <span class="menu-icon"><i class="fas fa-shield-alt"></i></span>
+                                    <span class="menu-text">Security</span>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="#notifications" class="menu-link" data-content="notifications">
+                                    <span class="menu-icon"><i class="fas fa-bell"></i></span>
+                                    <span class="menu-text">Notifications</span>
+                                </a>
+                            </li>
+                        </ul>
+                        
+                        <!-- Logout Button -->
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Account Content -->
+                <div class="col-lg-9">
+                    <!-- Success Message -->
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="messageText">Profile updated successfully!</span>
+                    </div>
+                    
+                    <!-- Dashboard Content -->
+                    <div id="dashboard" class="account-content active">
+                        <div class="content-header">
+                            <h2 class="content-title">Dashboard Overview</h2>
+                            <div class="last-login">
+                                Last login: 2 hours ago
+                            </div>
+                        </div>
+                        
+                        <!-- Overview Cards -->
+                        <div class="dashboard-overview">
+                            <div class="overview-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="card-value">7</div>
+                                <div class="card-label">Total Orders</div>
+                                <a href="#orders" class="card-link" data-content="orders">
+                                    View All Orders <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="card-value">3</div>
+                                <div class="card-label">Wishlist Items</div>
+                                <a href="#wishlist" class="card-link" data-content="wishlist">
+                                    View Wishlist <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="card-value">2</div>
+                                <div class="card-label">Saved Addresses</div>
+                                <a href="#addresses" class="card-link" data-content="addresses">
+                                    Manage Addresses <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="overview-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="card-value">Gold</div>
+                                <div class="card-label">Loyalty Tier</div>
+                                <a href="#" class="card-link">
+                                    View Benefits <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Orders -->
+                        <div class="content-header" style="margin-top: 40px;">
+                            <h2 class="content-title">Recent Orders</h2>
+                            <a href="#orders" class="card-link" data-content="orders">
+                                View All <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Date</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-78945</a>
+                                        </td>
+                                        <td>15 Nov 2023</td>
+                                        <td>2 Items</td>
+                                        <td>₹7,873</td>
+                                        <td>
+                                            <span class="order-status status-delivered">Delivered</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-78123</a>
+                                        </td>
+                                        <td>05 Nov 2023</td>
+                                        <td>1 Item</td>
+                                        <td>₹5,299</td>
+                                        <td>
+                                            <span class="order-status status-delivered">Delivered</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-77654</a>
+                                        </td>
+                                        <td>28 Oct 2023</td>
+                                        <td>3 Items</td>
+                                        <td>₹14,599</td>
+                                        <td>
+                                            <span class="order-status status-shipped">Shipped</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">Track</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Orders Content -->
+                    <div id="orders" class="account-content">
+                        <div class="content-header">
+                            <h2 class="content-title">My Orders</h2>
+                            <div class="order-filter">
+                                <select class="form-control" style="width: auto;">
+                                    <option>All Orders</option>
+                                    <option>Last 30 Days</option>
+                                    <option>Last 3 Months</option>
+                                    <option>2023</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Date</th>
+                                        <th>Items</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-78945</a>
+                                        </td>
+                                        <td>15 Nov 2023</td>
+                                        <td>Royal Blue Silk Saree, Floral Maxi Dress</td>
+                                        <td>₹7,873</td>
+                                        <td>
+                                            <span class="order-status status-delivered">Delivered</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">View</button>
+                                            <button class="action-btn">Reorder</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-78123</a>
+                                        </td>
+                                        <td>05 Nov 2023</td>
+                                        <td>Maroon Designer Silk Saree</td>
+                                        <td>₹5,299</td>
+                                        <td>
+                                            <span class="order-status status-delivered">Delivered</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">View</button>
+                                            <button class="action-btn">Return</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-77654</a>
+                                        </td>
+                                        <td>28 Oct 2023</td>
+                                        <td>Lehenga Choli Set, Earrings, Dupatta</td>
+                                        <td>₹14,599</td>
+                                        <td>
+                                            <span class="order-status status-shipped">Shipped</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">Track</button>
+                                            <button class="action-btn">View</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-77123</a>
+                                        </td>
+                                        <td>15 Oct 2023</td>
+                                        <td>Georgette Saree, Blouse Piece</td>
+                                        <td>₹3,599</td>
+                                        <td>
+                                            <span class="order-status status-delivered">Delivered</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">View</button>
+                                            <button class="action-btn">Review</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="order-details.html" class="order-id">#MC2023-76543</a>
+                                        </td>
+                                        <td>05 Oct 2023</td>
+                                        <td>Evening Gown, Clutch</td>
+                                        <td>₹6,299</td>
+                                        <td>
+                                            <span class="order-status status-delivered">Delivered</span>
+                                        </td>
+                                        <td>
+                                            <button class="action-btn">View</button>
+                                            <button class="action-btn">Reorder</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="d-flex justify-content-center mt-4">
+                            <nav>
+                                <ul class="pagination">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#">Previous</a>
+                                    </li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <!-- Wishlist Content -->
+                    <div id="wishlist" class="account-content">
+                        <div class="content-header">
+                            <h2 class="content-title">My Wishlist</h2>
+                            <button class="btn-primary" id="addAllToCart">
+                                <i class="fas fa-shopping-bag me-2"></i> Add All to Cart
+                            </button>
+                        </div>
+                        
+                        <div class="wishlist-grid">
+                            <!-- Wishlist Item 1 -->
+                            <div class="wishlist-card">
+                                <div class="wishlist-image">
+                                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Designer Saree">
+                                </div>
+                                <div class="wishlist-remove" title="Remove from wishlist">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="wishlist-content">
+                                    <div class="wishlist-title">Maroon Designer Silk Saree with Embroidery</div>
+                                    <div class="wishlist-price">₹5,299</div>
+                                    <div class="wishlist-actions">
+                                        <button class="action-btn">Add to Cart</button>
+                                        <button class="action-btn">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Wishlist Item 2 -->
+                            <div class="wishlist-card">
+                                <div class="wishlist-image">
+                                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Evening Gown">
+                                </div>
+                                <div class="wishlist-remove" title="Remove from wishlist">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="wishlist-content">
+                                    <div class="wishlist-title">Black Evening Gown with Sequins</div>
+                                    <div class="wishlist-price">₹5,499</div>
+                                    <div class="wishlist-actions">
+                                        <button class="action-btn">Add to Cart</button>
+                                        <button class="action-btn">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Wishlist Item 3 -->
+                            <div class="wishlist-card">
+                                <div class="wishlist-image">
+                                    <img src="https://images.unsplash.com/photo-1585487000160-6eb9ce6b5a5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Lehenga">
+                                </div>
+                                <div class="wishlist-remove" title="Remove from wishlist">
+                                    <i class="fas fa-times"></i>
+                                </div>
+                                <div class="wishlist-content">
+                                    <div class="wishlist-title">Purple Lehenga Choli Set with Dupatta</div>
+                                    <div class="wishlist-price">₹8,499 <span style="color: #999; text-decoration: line-through; font-size: 0.9rem;">₹11,299</span></div>
+                                    <div class="wishlist-actions">
+                                        <button class="action-btn">Add to Cart</button>
+                                        <button class="action-btn">View</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Empty Wishlist State -->
+                        <div id="emptyWishlist" class="empty-state" style="display: none;">
+                            <div class="empty-icon">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <h3 class="empty-title">Your wishlist is empty</h3>
+                            <p class="empty-text">Save items you love for later. Click the heart icon on any product to add it here.</p>
+                            <a href="shop.html" class="btn-primary">
+                                <i class="fas fa-shopping-bag me-2"></i> Start Shopping
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Addresses Content -->
+                    <div id="addresses" class="account-content">
+                        <div class="content-header">
+                            <h2 class="content-title">Address Book</h2>
+                            <button class="btn-primary" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                <i class="fas fa-plus me-2"></i> Add New Address
+                            </button>
+                        </div>
+                        
+                        <div class="address-grid">
+                            <!-- Address 1 -->
+                            <div class="address-card default">
+                                <div class="address-header">
+                                    <div class="address-name">Priya Sharma</div>
+                                    <span class="address-type">Default</span>
+                                </div>
+                                <div class="address-details">
+                                    123, Green Park Apartments<br>
+                                    Anna Nagar West<br>
+                                    Chennai, Tamil Nadu 600040<br>
+                                    India<br>
+                                    Phone: +91 9876543210
+                                </div>
+                                <div class="address-actions">
+                                    <button class="action-btn">Edit</button>
+                                    <button class="action-btn">Remove</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Address 2 -->
+                            <div class="address-card">
+                                <div class="address-header">
+                                    <div class="address-name">Work Address</div>
+                                    <span class="address-type">Work</span>
+                                </div>
+                                <div class="address-details">
+                                    456, Tech Park Building<br>
+                                    HITEC City<br>
+                                    Hyderabad, Telangana 500081<br>
+                                    India<br>
+                                    Phone: +91 9876543210
+                                </div>
+                                <div class="address-actions">
+                                    <button class="action-btn">Set as Default</button>
+                                    <button class="action-btn">Edit</button>
+                                    <button class="action-btn">Remove</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Add New Address Card -->
+                            <a href="#" class="add-address-card" data-bs-toggle="modal" data-bs-target="#addAddressModal">
+                                <div class="add-icon">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <div style="font-weight: 600; margin-bottom: 5px;">Add New Address</div>
+                                <div style="font-size: 0.9rem;">Click to add a new delivery address</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Content -->
+                    <div id="profile" class="account-content">
+                        <div class="content-header">
+                            <h2 class="content-title">Profile Details</h2>
+                            <div class="profile-status">
+                                <span class="badge bg-success">Verified</span>
+                            </div>
+                        </div>
+                        
+                        <form id="profileForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="profileFirstName" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="profileFirstName" value="Priya">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="profileLastName" class="form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="profileLastName" value="Sharma">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="profileEmail" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="profileEmail" value="priya.sharma@example.com" readonly>
+                                        <div class="form-text">Email cannot be changed</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="profilePhone" class="form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="profilePhone" value="+91 9876543210">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profileGender" class="form-label">Gender</label>
+                                <select class="form-control" id="profileGender">
+                                    <option value="female" selected>Female</option>
+                                    <option value="male">Male</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="profileBirthdate" class="form-label">Date of Birth</label>
+                                <input type="date" class="form-control" id="profileBirthdate" value="1990-05-15">
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <input type="checkbox" class="form-check-input" id="profileNewsletter" checked>
+                                <label class="form-check-label" for="profileNewsletter">
+                                    Subscribe to newsletter for exclusive offers and updates
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                                <button type="button" class="btn-secondary" id="cancelProfileChanges">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Security Content -->
+                    <div id="security" class="account-content">
+                        <div class="content-header">
+                            <h2 class="content-title">Security Settings</h2>
+                        </div>
+                        
+                        <div class="alert alert-info mb-4">
+                            <i class="fas fa-info-circle me-2"></i>
+                            Keep your account secure by regularly updating your password and reviewing security settings.
+                        </div>
+                        
+                        <form id="securityForm">
+                            <div class="form-group">
+                                <label for="currentPassword" class="form-label">Current Password</label>
+                                <input type="password" class="form-control" id="currentPassword" placeholder="Enter current password">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="newPassword" class="form-label">New Password</label>
+                                <input type="password" class="form-control" id="newPassword" placeholder="Enter new password">
+                                <div class="form-text">Minimum 8 characters with at least one letter and one number</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                                <input type="password" class="form-control" id="confirmNewPassword" placeholder="Confirm new password">
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Update Password</button>
+                            </div>
+                        </form>
+                        
+                        <div class="mt-5 pt-4 border-top">
+                            <h4 class="mb-3">Security Sessions</h4>
+                            <div class="table-responsive">
+                                <table class="orders-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Device</th>
+                                            <th>Location</th>
+                                            <th>Last Active</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <i class="fas fa-desktop me-2"></i>
+                                                Windows Chrome
+                                            </td>
+                                            <td>Chennai, India (Current)</td>
+                                            <td>2 hours ago</td>
+                                            <td><span class="text-success">Active</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <i class="fas fa-mobile-alt me-2"></i>
+                                                iOS Safari
+                                            </td>
+                                            <td>Hyderabad, India</td>
+                                            <td>3 days ago</td>
+                                            <td><button class="action-btn">Logout</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notifications Content -->
+                    <div id="notifications" class="account-content">
+                        <div class="content-header">
+                            <h2 class="content-title">Notification Preferences</h2>
+                        </div>
+                        
+                        <form id="notificationsForm">
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="notifyOrders" checked>
+                                <label class="form-check-label" for="notifyOrders">
+                                    <strong>Order Updates</strong><br>
+                                    Get notified about order confirmation, shipping, and delivery
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="notifyPromotions" checked>
+                                <label class="form-check-label" for="notifyPromotions">
+                                    <strong>Promotions & Offers</strong><br>
+                                    Receive emails about sales, discounts, and special offers
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="notifyNewArrivals" checked>
+                                <label class="form-check-label" for="notifyNewArrivals">
+                                    <strong>New Arrivals</strong><br>
+                                    Get notified when new products are added to collections you love
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-3">
+                                <input type="checkbox" class="form-check-input" id="notifyWishlist" checked>
+                                <label class="form-check-label" for="notifyWishlist">
+                                    <strong>Wishlist Reminders</strong><br>
+                                    Receive reminders about items in your wishlist
+                                </label>
+                            </div>
+                            
+                            <div class="form-check mb-4">
+                                <input type="checkbox" class="form-check-input" id="notifySMS" checked>
+                                <label class="form-check-label" for="notifySMS">
+                                    <strong>SMS Notifications</strong><br>
+                                    Receive order updates via SMS on +91 9876543210
+                                </label>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn-primary">Save Preferences</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <a href="index.html" class="footer-logo">Mokshitha<span>.</span></a>
+                    <p class="footer-about">
+                        Bringing you the finest collection of traditional sarees and contemporary dresses since 2010. Our mission is to make every woman feel elegant and confident.
+                    </p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="sarees.html">Sarees</a></li>
+                        <li><a href="dresses.html">Dresses</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 mb-4">
+                    <h4 class="footer-title">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="shipping.html">Shipping Policy</a></li>
+                        <li><a href="returns.html">Returns & Exchange</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 mb-4">
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Fashion Street, Chennai, India</li>
+                        <li><i class="fas fa-phone-alt me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@mokshithacollections.com</li>
+                        <li><i class="fas fa-clock me-2"></i> Mon-Sat: 10AM - 8PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Mokshitha Collections. All rights reserved. | Designed with <i class="fas fa-heart" style="color: var(--light-sea-green);"></i> for elegant women</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Add Address Modal -->
+    <div class="modal fade" id="addAddressModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Address</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addressForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">First Name</label>
+                                    <input type="text" class="form-control" value="Priya">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" value="Sharma">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" value="+91 9876543210">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Street Address</label>
+                            <input type="text" class="form-control" placeholder="House number, street, apartment">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">City</label>
+                                    <input type="text" class="form-control" placeholder="City">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">State</label>
+                                    <select class="form-control">
+                                        <option value="">Select State</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Delhi">Delhi</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">PIN Code</label>
+                                    <input type="text" class="form-control" placeholder="PIN Code">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label">Country</label>
+                                    <select class="form-control">
+                                        <option value="India" selected>India</option>
+                                        <option value="USA">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Address Type</label>
+                            <div class="d-flex gap-3">
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="addressType" id="homeType" checked>
+                                    <label class="form-check-label" for="homeType">Home</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="addressType" id="workType">
+                                    <label class="form-check-label" for="workType">Work</label>
+                                </div>
+                                <div class="form-check">
+                                    <input type="radio" class="form-check-input" name="addressType" id="otherType">
+                                    <label class="form-check-label" for="otherType">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-check mb-4">
+                            <input type="checkbox" class="form-check-input" id="setAsDefault">
+                            <label class="form-check-label" for="setAsDefault">Set as default address</label>
+                        </div>
+                        
+                        <div class="d-flex gap-3">
+                            <button type="submit" class="btn-primary flex-grow-1">Save Address</button>
+                            <button type="button" class="btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            setupEventListeners();
+            checkEmptyWishlist();
+        });
+        
+        function setupEventListeners() {
+            // Menu navigation
+            document.querySelectorAll('.menu-link, .card-link[data-content]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const contentId = this.getAttribute('data-content') || 
+                                     this.getAttribute('href').substring(1);
+                    
+                    // Update active menu item
+                    document.querySelectorAll('.menu-link').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Show selected content
+                    document.querySelectorAll('.account-content').forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    document.getElementById(contentId).classList.add('active');
+                    
+                    // Scroll to top of content
+                    document.getElementById(contentId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+            });
+            
+            // Logout button
+            document.querySelector('.logout-btn').addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    showNotification('Logging out...', 'info');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                }
+            });
+            
+            // Avatar edit
+            document.querySelector('.avatar-edit').addEventListener('click', function() {
+                showNotification('Avatar upload feature would be implemented here', 'info');
+            });
+            
+            // Wishlist remove buttons
+            document.querySelectorAll('.wishlist-remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.wishlist-card');
+                    card.style.transform = 'scale(0.8)';
+                    card.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        card.remove();
+                        checkEmptyWishlist();
+                        updateWishlistCount();
+                        showNotification('Item removed from wishlist', 'success');
+                    }, 300);
+                });
+            });
+            
+            // Add all to cart
+            document.getElementById('addAllToCart').addEventListener('click', function() {
+                const items = document.querySelectorAll('.wishlist-card').length;
+                if (items === 0) {
+                    showNotification('Your wishlist is empty', 'error');
+                    return;
+                }
+                
+                showNotification(`Adding ${items} items to cart...`, 'success');
+                
+                // Simulate adding to cart
+                setTimeout(() => {
+                    document.querySelectorAll('.wishlist-card').forEach(card => {
+                        card.style.transform = 'translateY(-10px) scale(0.95)';
+                        card.style.opacity = '0.5';
+                    });
+                    
+                    setTimeout(() => {
+                        document.querySelectorAll('.wishlist-card').forEach(card => {
+                            card.remove();
+                        });
+                        checkEmptyWishlist();
+                        updateWishlistCount();
+                        showNotification('All items added to cart!', 'success');
+                    }, 500);
+                }, 1000);
+            });
+            
+            // Address actions
+            document.querySelectorAll('.address-actions .action-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.textContent.trim();
+                    const addressCard = this.closest('.address-card');
+                    
+                    if (action === 'Remove') {
+                        if (confirm('Are you sure you want to remove this address?')) {
+                            addressCard.style.transform = 'scale(0.9)';
+                            addressCard.style.opacity = '0';
+                            
+                            setTimeout(() => {
+                                addressCard.remove();
+                                showNotification('Address removed', 'success');
+                            }, 300);
+                        }
+                    } else if (action === 'Set as Default') {
+                        document.querySelectorAll('.address-card').forEach(card => {
+                            card.classList.remove('default');
+                        });
+                        addressCard.classList.add('default');
+                        showNotification('Default address updated', 'success');
+                    } else if (action === 'Edit') {
+                        // In real app, this would open edit modal
+                        showNotification('Edit address feature would open here', 'info');
+                    }
+                });
+            });
+            
+            // Profile form submission
+            document.getElementById('profileForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const saveBtn = this.querySelector('.btn-primary');
+                const originalText = saveBtn.innerHTML;
+                
+                saveBtn.innerHTML = '<span class="spinner"></span> Saving...';
+                saveBtn.disabled = true;
+                
+                // Simulate API call
+                setTimeout(() => {
+                    saveBtn.innerHTML = originalText;
+                    saveBtn.disabled = false;
+                    
+                    document.getElementById('messageText').textContent = 'Profile updated successfully!';
+                    document.getElementById('successMessage').style.display = 'block';
+                    
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 3000);
+                    
+                    // Update displayed name in sidebar
+                    const firstName = document.getElementById('profileFirstName').value;
+                    const lastName = document.getElementById('profileLastName').value;
+                    document.querySelector('.user-name').textContent = `${firstName} ${lastName}`;
+                    
+                    // Update welcome message in header
+                    document.querySelector('.header-top span').textContent = `Welcome back, ${firstName} ${lastName}!`;
+                    
+                }, 1500);
+            });
+            
+            // Cancel profile changes
+            document.getElementById('cancelProfileChanges').addEventListener('click', function() {
+                document.getElementById('profileForm').reset();
+            });
+            
+            // Security form submission
+            document.getElementById('securityForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const currentPass = document.getElementById('currentPassword').value;
+                const newPass = document.getElementById('newPassword').value;
+                const confirmPass = document.getElementById('confirmNewPassword').value;
+                
+                if (!currentPass || !newPass || !confirmPass) {
+                    showNotification('Please fill in all password fields', 'error');
+                    return;
+                }
+                
+                if (newPass !== confirmPass) {
+                    showNotification('New passwords do not match', 'error');
+                    return;
+                }
+                
+                if (newPass.length < 8) {
+                    showNotification('Password must be at least 8 characters', 'error');
+                    return;
+                }
+                
+                // Simulate API call
+                const saveBtn = this.querySelector('.btn-primary');
+                const originalText = saveBtn.innerHTML;
+                
+                saveBtn.innerHTML = '<span class="spinner"></span> Updating...';
+                saveBtn.disabled = true;
+                
+                setTimeout(() => {
+                    saveBtn.innerHTML = originalText;
+                    saveBtn.disabled = false;
+                    this.reset();
+                    showNotification('Password updated successfully', 'success');
+                }, 1500);
+            });
+            
+            // Notifications form submission
+            document.getElementById('notificationsForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showNotification('Notification preferences saved', 'success');
+            });
+            
+            // Address form submission
+            document.getElementById('addressForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('addAddressModal'));
+                modal.hide();
+                
+                showNotification('New address added successfully', 'success');
+                
+                // In real app, this would add the address to the grid
+                setTimeout(() => {
+                    showNotification('Address would be added to the grid here', 'info');
+                }, 500);
+            });
+            
+            // Search functionality
+            document.querySelector('.search-icon').addEventListener('click', showSearchModal);
+        }
+        
+        function checkEmptyWishlist() {
+            const wishlistItems = document.querySelectorAll('.wishlist-card').length;
+            const emptyState = document.getElementById('emptyWishlist');
+            const wishlistContent = document.getElementById('wishlist');
+            
+            if (wishlistItems === 0) {
+                emptyState.style.display = 'block';
+                wishlistContent.querySelector('.wishlist-grid').style.display = 'none';
+            } else {
+                emptyState.style.display = 'none';
+                wishlistContent.querySelector('.wishlist-grid').style.display = 'grid';
+            }
+        }
+        
+        function updateWishlistCount() {
+            const count = document.querySelectorAll('.wishlist-card').length;
+            
+            // Update sidebar badge
+            document.querySelector('.menu-link[data-content="wishlist"] .menu-badge').textContent = count;
+            
+            // Update header count
+            document.querySelector('.wishlist-icon .cart-count').textContent = count;
+            
+            // Update dashboard card
+            document.querySelector('.overview-card:nth-child(2) .card-value').textContent = count;
+            
+            // Update account stats
+            document.querySelector('.account-stats .stat-item:nth-child(3) .stat-value').textContent = count;
+        }
+        
+        // Common functions
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: ${type === 'error' ? '#ff6b6b' : 
+                           type === 'info' ? '#17a2b8' : 
+                           'linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green))'};
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 10000;
+                transform: translateX(150%);
+                transition: transform 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 10);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+        
+        function showSearchModal() {
+            const searchBox = document.createElement('div');
+            searchBox.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.8);
+                z-index: 10001;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            `;
+            
+            searchBox.innerHTML = `
+                <div style="background: white; padding: 30px; border-radius: 10px; width: 90%; max-width: 600px; position: relative;">
+                    <button class="close-search" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+                    <h3 style="margin-bottom: 20px; color: var(--dark-text);">Search Products</h3>
+                    <div style="display: flex;">
+                        <input type="text" placeholder="Search for sarees, dresses, collections..." 
+                               style="flex: 1; padding: 15px; border: 2px solid #eee; border-radius: 5px 0 0 5px; font-size: 1rem;">
+                        <button style="background: linear-gradient(135deg, var(--dark-sea-green), var(--light-sea-green)); color: white; border: none; padding: 0 30px; border-radius: 0 5px 5px 0; cursor: pointer;">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                        <p>Popular searches: <a href="#" style="color: var(--dark-sea-green); margin-right: 10px;">Silk Sarees</a> 
+                        <a href="#" style="color: var(--dark-sea-green); margin-right: 10px;">Evening Dresses</a> 
+                        <a href="#" style="color: var(--dark-sea-green);">Party Wear</a></p>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(searchBox);
+            
+            searchBox.querySelector('.close-search').addEventListener('click', function() {
+                document.body.removeChild(searchBox);
+            });
+            
+            searchBox.addEventListener('click', function(e) {
+                if (e.target === searchBox) {
+                    document.body.removeChild(searchBox);
+                }
+            });
+        }
+        
+        // Mobile optimizations
+        if (window.innerWidth <= 768) {
+            // Make action buttons larger
+            document.querySelectorAll('.action-btn').forEach(btn => {
+                btn.style.padding = '12px 20px';
+                btn.style.minHeight = '44px';
+            });
+            
+            // Make form inputs larger
+            document.querySelectorAll('.form-control').forEach(input => {
+                input.style.minHeight = '48px';
+                input.style.fontSize = '16px';
+            });
+        }
+    </script>
+</body>
+</html>
