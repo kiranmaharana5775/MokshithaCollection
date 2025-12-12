@@ -750,7 +750,7 @@
                         <div class="icon search-icon">
                             <i class="fas fa-search"></i>
                         </div>
-                        <div class="icon user-icon">
+                        <div class="icon user-icon" id="userIcon">
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="icon wishlist-icon" id="cartIcon">
@@ -1178,6 +1178,11 @@
                     }
                 }
             });
+        });
+
+        const userIcon = document.getElementById('userIcon');
+        userIcon.addEventListener('click', () => {
+            window.location.href = 'login.html';
         });
 
         const cartIcon = document.getElementById('cartIcon');
